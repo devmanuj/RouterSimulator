@@ -1,0 +1,36 @@
+Algorithms Network Router Simulator
+
+- DEFINING RULES
+
+Step 1 Start
+	2 n <- ruleStringArrayCount
+	3 for i <- 0 to n - 1 do
+		3.1  networkAddress <- extractNetworkAddress (ruleStringArray[i])
+		3.2  subnetMask <- extractSubnetMask(ruleStringArray[i])
+		3.3 destinationMachineAddress <- extarctDestinationMachineAddress(ruleStringArray[i])
+		3.4 rule <- initRule(networkAddress, subnetMask, destinationMachineAddress)
+		3.5 add rule to rulesArray
+	4	Stop
+	
+
+
+
+- ADDRESS MATCHES NETWORK RULE		
+Network Rule [Network address, Subnet mask, Destination machine address]
+
+Step 1 Start
+	2 address <- IpAddress(new)
+	3 rule <- NetworkRule(new)
+	4 if(rule.networkAddress.firstOctet != address.firstOctet) then 
+		return NO
+	   if(rule.subnetMask.secondOctet == 255) then
+		if(rule.networkAddress.secondOctet != address.secondOctet) then 
+			return NO
+	   if(rule.subnetMask.thirdOctet == 255) then
+		if(rule.networkAddress.thirdOctet != address.thirdOctet) then 
+			return NO
+		
+	else
+		return YES
+
+	5 Stop
