@@ -29,6 +29,7 @@
 
 - (void)testIpAddress
 {
+    
     NSString *address = @"192.168.0.1";
     
     IpAddress *ipAddress = [[IpAddress alloc] initWithString:address];
